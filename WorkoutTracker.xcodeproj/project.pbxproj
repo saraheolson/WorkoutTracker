@@ -25,6 +25,9 @@
 		21DBBF3F1D9825B200926C2A /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21DBBF3E1D9825B200926C2A /* HealthKit.framework */; };
 		21DBBF441D982AD600926C2A /* CurrentWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DBBF431D982AD600926C2A /* CurrentWorkoutViewController.swift */; };
 		21DBBF4A1D982B9E00926C2A /* HealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DBBF491D982B9E00926C2A /* HealthKitManager.swift */; };
+		21DBBF4C1D98312400926C2A /* CreateWorkoutTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DBBF4B1D98312400926C2A /* CreateWorkoutTableViewController.swift */; };
+		21DBBF4F1D9834AB00926C2A /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DBBF4E1D9834AB00926C2A /* Exercise.swift */; };
+		21DBBF511D98939900926C2A /* AddExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DBBF501D98939900926C2A /* AddExerciseViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +115,9 @@
 		21DBBF401D9825B200926C2A /* WorkoutTracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WorkoutTracker.entitlements; sourceTree = "<group>"; };
 		21DBBF431D982AD600926C2A /* CurrentWorkoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CurrentWorkoutViewController.swift; path = ViewControllers/CurrentWorkoutViewController.swift; sourceTree = "<group>"; };
 		21DBBF491D982B9E00926C2A /* HealthKitManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HealthKitManager.swift; path = ModelControllers/HealthKitManager.swift; sourceTree = "<group>"; };
+		21DBBF4B1D98312400926C2A /* CreateWorkoutTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateWorkoutTableViewController.swift; path = ViewControllers/CreateWorkoutTableViewController.swift; sourceTree = "<group>"; };
+		21DBBF4E1D9834AB00926C2A /* Exercise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Exercise.swift; path = Models/Exercise.swift; sourceTree = "<group>"; };
+		21DBBF501D98939900926C2A /* AddExerciseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddExerciseViewController.swift; path = ViewControllers/AddExerciseViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +181,7 @@
 		21DBBEE31D98259700926C2A /* WorkoutTracker */ = {
 			isa = PBXGroup;
 			children = (
+				21DBBF4D1D98349900926C2A /* Models */,
 				21DBBF421D982A8A00926C2A /* ModelControllers */,
 				21DBBF471D982B5D00926C2A /* Resources */,
 				21DBBF451D982B1B00926C2A /* Storyboards */,
@@ -245,6 +252,8 @@
 		21DBBF411D982A7D00926C2A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				21DBBF501D98939900926C2A /* AddExerciseViewController.swift */,
+				21DBBF4B1D98312400926C2A /* CreateWorkoutTableViewController.swift */,
 				21DBBF431D982AD600926C2A /* CurrentWorkoutViewController.swift */,
 			);
 			name = ViewControllers;
@@ -291,6 +300,14 @@
 				21DBBEEB1D98259700926C2A /* Assets.xcassets */,
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		21DBBF4D1D98349900926C2A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				21DBBF4E1D9834AB00926C2A /* Exercise.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -500,9 +517,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21DBBF511D98939900926C2A /* AddExerciseViewController.swift in Sources */,
+				21DBBF4F1D9834AB00926C2A /* Exercise.swift in Sources */,
 				21DBBF441D982AD600926C2A /* CurrentWorkoutViewController.swift in Sources */,
 				21DBBEE51D98259700926C2A /* AppDelegate.swift in Sources */,
 				21DBBF4A1D982B9E00926C2A /* HealthKitManager.swift in Sources */,
+				21DBBF4C1D98312400926C2A /* CreateWorkoutTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

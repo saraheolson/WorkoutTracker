@@ -2,7 +2,7 @@
 //  CurrentWorkoutViewController.swift
 //  WorkoutTracker
 //
-//  Created by Floater on 9/25/16.
+//  Created by SarahEOlson on 9/25/16.
 //  Copyright © 2016 SarahEOlson. All rights reserved.
 //
 
@@ -11,7 +11,12 @@ import HealthKit
 
 class CurrentWorkoutViewController: UIViewController {
     
+    @IBOutlet var countdownLabel: UILabel!
     @IBOutlet var heartRateLabel: UILabel!
+    
+    var currentExercise: Exercise?
+    var countdown = 0
+    var timer: Timer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +24,15 @@ class CurrentWorkoutViewController: UIViewController {
         
         // Update the label
         heartRateLabel.text = "Gathering data..."
+        
+        if let exercise = currentExercise {
+            
+            countdown = Int(exercise.duration)
+            countdownLabel.text = "\(countdown)"
+
+            // initiate the countdown
+            timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateCountdown), userInfo: nil, repeats: true)
+        }
         
         // Authorize access to HealthKit data
         HealthKitManager.sharedInstance.authorizeHealthKit { (success, error) in
@@ -35,7 +49,17 @@ class CurrentWorkoutViewController: UIViewController {
         // Retrieve the latest heart rate
         HealthKitManager.sharedInstance.retrieveHeartRate()
     }
+    
+    func updateCountdown() {
+        if countdown > 0 {
+            countdown -= 1
+            countdownLabel.text = "\(countdown)"
+        } else {
+            timer?.invalidate()
+        }
+    }
 }
+
 extension CurrentWorkoutViewController: HeartRateDelegate {
     
     func didReceiveNewHeartRate(heartRate: HKQuantitySample) {

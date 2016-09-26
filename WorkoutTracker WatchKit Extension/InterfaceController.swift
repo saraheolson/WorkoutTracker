@@ -2,7 +2,7 @@
 //  InterfaceController.swift
 //  WorkoutTracker WatchKit Extension
 //
-//  Created by Floater on 9/25/16.
+//  Created by SarahEOlson on 9/25/16.
 //  Copyright © 2016 SarahEOlson. All rights reserved.
 //
 
