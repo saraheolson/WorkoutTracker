@@ -78,6 +78,6 @@ extension CurrentWorkoutViewController: WorkoutDelegate {
     
     func didReceiveNewWorkout(workout: HKWorkout) {
         let workoutEvents = workout.workoutEvents
-        
+        print("Workout Events: \(workoutEvents)")
     }
 }
