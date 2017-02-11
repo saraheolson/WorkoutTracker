@@ -10,9 +10,7 @@ import UIKit
 
 class CreateWorkoutTableViewController: UITableViewController {
 
-    var exercises: [Exercise] = [ Exercise(exerciseName: "Push-ups", duration: 30),
-                                  Exercise(exerciseName: "Squats", duration: 30),
-                                  Exercise(exerciseName: "Lunges", duration: 30)]
+    var exercises: [Exercise] = WorkoutManager().getWorkout()
     
     override func viewDidLoad() {
         super.viewDidLoad()

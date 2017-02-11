@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0CA918F41DE3B4060035B8BF /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DBBF4E1D9834AB00926C2A /* Exercise.swift */; };
+		0CA918F61DE3B4590035B8BF /* WorkoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA918F51DE3B4590035B8BF /* WorkoutManager.swift */; };
+		0CA918F71DE3B49F0035B8BF /* WorkoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA918F51DE3B4590035B8BF /* WorkoutManager.swift */; };
+		0CA918FA1DE3D20A0035B8BF /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CA918F91DE3D20A0035B8BF /* HealthKit.framework */; };
+		0CA918FB1DE3D24D0035B8BF /* HealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DBBF491D982B9E00926C2A /* HealthKitManager.swift */; };
+		0CA918FD1DE765840035B8BF /* WorkoutSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA918FC1DE765840035B8BF /* WorkoutSessionManager.swift */; };
+		0CA919041DEB9B150035B8BF /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA919031DEB9B150035B8BF /* Workout.swift */; };
+		0CA919061DEB9DE20035B8BF /* IntervalWorkout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA919051DEB9DE20035B8BF /* IntervalWorkout.swift */; };
+		0CA919091DEB9FC20035B8BF /* HealthKitManager_Watch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA919081DEB9FC20035B8BF /* HealthKitManager_Watch.swift */; };
 		21DBBEE51D98259700926C2A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DBBEE41D98259700926C2A /* AppDelegate.swift */; };
 		21DBBEEA1D98259700926C2A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21DBBEE81D98259700926C2A /* Main.storyboard */; };
 		21DBBEEC1D98259700926C2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21DBBEEB1D98259700926C2A /* Assets.xcassets */; };
@@ -87,6 +96,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0CA918F51DE3B4590035B8BF /* WorkoutManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WorkoutManager.swift; path = Shared/WorkoutManager.swift; sourceTree = "<group>"; };
+		0CA918F81DE3D20A0035B8BF /* WorkoutTracker WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "WorkoutTracker WatchKit Extension.entitlements"; sourceTree = "<group>"; };
+		0CA918F91DE3D20A0035B8BF /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS3.1.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
+		0CA918FC1DE765840035B8BF /* WorkoutSessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutSessionManager.swift; sourceTree = "<group>"; };
+		0CA919031DEB9B150035B8BF /* Workout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Workout.swift; path = Shared/Models/Workout.swift; sourceTree = "<group>"; };
+		0CA919051DEB9DE20035B8BF /* IntervalWorkout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IntervalWorkout.swift; path = Shared/Models/IntervalWorkout.swift; sourceTree = "<group>"; };
+		0CA919081DEB9FC20035B8BF /* HealthKitManager_Watch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HealthKitManager_Watch.swift; path = HealthKit/HealthKitManager_Watch.swift; sourceTree = "<group>"; };
 		21DBBEE11D98259700926C2A /* WorkoutTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorkoutTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21DBBEE41D98259700926C2A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		21DBBEE91D98259700926C2A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -114,9 +130,9 @@
 		21DBBF3E1D9825B200926C2A /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		21DBBF401D9825B200926C2A /* WorkoutTracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WorkoutTracker.entitlements; sourceTree = "<group>"; };
 		21DBBF431D982AD600926C2A /* CurrentWorkoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CurrentWorkoutViewController.swift; path = ViewControllers/CurrentWorkoutViewController.swift; sourceTree = "<group>"; };
-		21DBBF491D982B9E00926C2A /* HealthKitManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HealthKitManager.swift; path = ModelControllers/HealthKitManager.swift; sourceTree = "<group>"; };
+		21DBBF491D982B9E00926C2A /* HealthKitManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HealthKitManager.swift; path = WorkoutTracker/ModelControllers/HealthKitManager.swift; sourceTree = "<group>"; };
 		21DBBF4B1D98312400926C2A /* CreateWorkoutTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateWorkoutTableViewController.swift; path = ViewControllers/CreateWorkoutTableViewController.swift; sourceTree = "<group>"; };
-		21DBBF4E1D9834AB00926C2A /* Exercise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Exercise.swift; path = Models/Exercise.swift; sourceTree = "<group>"; };
+		21DBBF4E1D9834AB00926C2A /* Exercise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Exercise.swift; path = WorkoutTracker/Models/Exercise.swift; sourceTree = "<group>"; };
 		21DBBF501D98939900926C2A /* AddExerciseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddExerciseViewController.swift; path = ViewControllers/AddExerciseViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -147,18 +163,64 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CA918FA1DE3D20A0035B8BF /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0CA918F31DE3B3D80035B8BF /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				0CA919011DEB82200035B8BF /* Managers */,
+				0CA919001DEB82090035B8BF /* Models */,
+			);
+			name = Shared;
+			sourceTree = "<group>";
+		};
+		0CA919001DEB82090035B8BF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				21DBBF4E1D9834AB00926C2A /* Exercise.swift */,
+				0CA919031DEB9B150035B8BF /* Workout.swift */,
+				0CA919051DEB9DE20035B8BF /* IntervalWorkout.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		0CA919011DEB82200035B8BF /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				0CA919021DEB82290035B8BF /* HealthKit */,
+				0CA918F51DE3B4590035B8BF /* WorkoutManager.swift */,
+			);
+			name = Managers;
+			sourceTree = "<group>";
+		};
+		0CA919021DEB82290035B8BF /* HealthKit */ = {
+			isa = PBXGroup;
+			children = (
+				21DBBF491D982B9E00926C2A /* HealthKitManager.swift */,
+			);
+			name = HealthKit;
+			sourceTree = "<group>";
+		};
+		0CA919071DEB9FA30035B8BF /* HealthKit */ = {
+			isa = PBXGroup;
+			children = (
+				0CA919081DEB9FC20035B8BF /* HealthKitManager_Watch.swift */,
+			);
+			name = HealthKit;
+			sourceTree = "<group>";
+		};
 		21DBBED81D98259700926C2A = {
 			isa = PBXGroup;
 			children = (
 				21DBBEE31D98259700926C2A /* WorkoutTracker */,
 				21DBBEF81D98259700926C2A /* WorkoutTrackerTests */,
 				21DBBF031D98259700926C2A /* WorkoutTrackerUITests */,
+				0CA918F31DE3B3D80035B8BF /* Shared */,
 				21DBBF0D1D98259700926C2A /* WorkoutTracker WatchKit App */,
 				21DBBF1C1D98259800926C2A /* WorkoutTracker WatchKit Extension */,
 				21DBBEE21D98259700926C2A /* Products */,
@@ -181,7 +243,6 @@
 		21DBBEE31D98259700926C2A /* WorkoutTracker */ = {
 			isa = PBXGroup;
 			children = (
-				21DBBF4D1D98349900926C2A /* Models */,
 				21DBBF421D982A8A00926C2A /* ModelControllers */,
 				21DBBF471D982B5D00926C2A /* Resources */,
 				21DBBF451D982B1B00926C2A /* Storyboards */,
@@ -222,10 +283,13 @@
 		21DBBF1C1D98259800926C2A /* WorkoutTracker WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
+				0CA919071DEB9FA30035B8BF /* HealthKit */,
+				0CA918F81DE3D20A0035B8BF /* WorkoutTracker WatchKit Extension.entitlements */,
 				21DBBF1F1D98259800926C2A /* InterfaceController.swift */,
 				21DBBF211D98259800926C2A /* ExtensionDelegate.swift */,
 				21DBBF231D98259800926C2A /* NotificationController.swift */,
 				21DBBF251D98259800926C2A /* ComplicationController.swift */,
+				0CA918FC1DE765840035B8BF /* WorkoutSessionManager.swift */,
 				21DBBF271D98259800926C2A /* Assets.xcassets */,
 				21DBBF291D98259800926C2A /* Info.plist */,
 				21DBBF1D1D98259800926C2A /* Supporting Files */,
@@ -244,6 +308,7 @@
 		21DBBF3D1D9825B200926C2A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0CA918F91DE3D20A0035B8BF /* HealthKit.framework */,
 				21DBBF3E1D9825B200926C2A /* HealthKit.framework */,
 			);
 			name = Frameworks;
@@ -262,7 +327,6 @@
 		21DBBF421D982A8A00926C2A /* ModelControllers */ = {
 			isa = PBXGroup;
 			children = (
-				21DBBF491D982B9E00926C2A /* HealthKitManager.swift */,
 			);
 			name = ModelControllers;
 			sourceTree = "<group>";
@@ -300,14 +364,6 @@
 				21DBBEEB1D98259700926C2A /* Assets.xcassets */,
 			);
 			name = Images;
-			sourceTree = "<group>";
-		};
-		21DBBF4D1D98349900926C2A /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				21DBBF4E1D9834AB00926C2A /* Exercise.swift */,
-			);
-			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -443,6 +499,11 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 4SR4ST5E9E;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.HealthKit.watchos = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -518,6 +579,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				21DBBF511D98939900926C2A /* AddExerciseViewController.swift in Sources */,
+				0CA918F61DE3B4590035B8BF /* WorkoutManager.swift in Sources */,
 				21DBBF4F1D9834AB00926C2A /* Exercise.swift in Sources */,
 				21DBBF441D982AD600926C2A /* CurrentWorkoutViewController.swift in Sources */,
 				21DBBEE51D98259700926C2A /* AppDelegate.swift in Sources */,
@@ -546,10 +608,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CA918FD1DE765840035B8BF /* WorkoutSessionManager.swift in Sources */,
+				0CA918F41DE3B4060035B8BF /* Exercise.swift in Sources */,
 				21DBBF241D98259800926C2A /* NotificationController.swift in Sources */,
 				21DBBF261D98259800926C2A /* ComplicationController.swift in Sources */,
 				21DBBF221D98259800926C2A /* ExtensionDelegate.swift in Sources */,
+				0CA919041DEB9B150035B8BF /* Workout.swift in Sources */,
+				0CA919061DEB9DE20035B8BF /* IntervalWorkout.swift in Sources */,
 				21DBBF201D98259800926C2A /* InterfaceController.swift in Sources */,
+				0CA919091DEB9FC20035B8BF /* HealthKitManager_Watch.swift in Sources */,
+				0CA918FB1DE3D24D0035B8BF /* HealthKitManager.swift in Sources */,
+				0CA918F71DE3B49F0035B8BF /* WorkoutManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -703,6 +772,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "WorkoutTracker WatchKit Extension/WorkoutTracker WatchKit Extension.entitlements";
 				DEVELOPMENT_TEAM = 4SR4ST5E9E;
 				INFOPLIST_FILE = "WorkoutTracker WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
@@ -720,6 +790,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "WorkoutTracker WatchKit Extension/WorkoutTracker WatchKit Extension.entitlements";
 				DEVELOPMENT_TEAM = 4SR4ST5E9E;
 				INFOPLIST_FILE = "WorkoutTracker WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";

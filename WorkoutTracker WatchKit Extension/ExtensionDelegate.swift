@@ -7,6 +7,8 @@
 //
 
 import WatchKit
+import WatchConnectivity
+import HealthKit
 
 class ExtensionDelegate: NSObject, WKExtensionDelegate {
 
@@ -46,5 +48,68 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
             }
         }
     }
-
+    
+    func handle(_ workoutConfiguration: HKWorkoutConfiguration) {
+        
+        // display workout on watch
+        print("Workout Configuration: \(workoutConfiguration.activityType)")
+        
+        do {
+            let session = try HKWorkoutSession(configuration: workoutConfiguration)
+            WorkoutSessionManager.sharedInstance.workoutSession = session
+            
+            HKHealthStore().start(session)
+        } catch let error as NSError {
+            print("Error creating workout session: \(error.localizedDescription)")
+        }
+    }
 }
+//
+//// MARK: - Watch Connectivity
+//extension ExtensionDelegate: WCSessionDelegate {
+//    
+//    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+//        if let error = error {
+//            print("WC Session activation failed with error: \(error.localizedDescription)")
+//            return
+//        }
+//        print("WC Session activated with state: \(activationState.rawValue)")
+//    }
+//    
+//    func setupWatchConnectivity() {
+//        if WCSession.isSupported() {
+//            let session  = WCSession.default()
+//            session.delegate = self
+//            session.activate()
+//        }
+//    }
+//    
+//    // 1
+//    func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
+////        // 2
+////        if let movies = applicationContext["movies"] as? [String] {
+////            // 3
+////            TicketOffice.sharedInstance.purchaseTicketsForMovies(movies)
+////            // 4
+////            DispatchQueue.main.async(execute: {
+////                WKInterfaceController.reloadRootControllers(
+////                    withNames: ["PurchasedMovieTickets"], contexts: nil)
+////            })
+////        }
+//    }
+//    
+//    func sendWorkoutToPhone(_ notification:Notification) {
+//        if WCSession.isSupported() {
+////            if let movies =
+////                TicketOffice.sharedInstance.purchasedMovieTicketIDs() {
+////                // 3
+////                do {
+////                    let dictionary = ["movies": movies]
+////                    try WCSession.default().updateApplicationContext(dictionary)
+////                } catch {
+////                    print("ERROR: \(error)")
+////                }
+////            }
+//        }
+//    }
+//}

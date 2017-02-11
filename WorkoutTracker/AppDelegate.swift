@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import WatchConnectivity
+import HealthKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    let healthStore = HKHealthStore()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -40,7 +42,70 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
+    
+    func applicationShouldRequestHealthAuthorization(_ application: UIApplication) {
+        healthStore.handleAuthorizationForExtension { (success, error) in
+            print("Requested authorization.")
+        }
+    }
 }
-
+//
+//extension AppDelegate: WCSessionDelegate {
+//    
+//    func sessionDidBecomeInactive(_ session: WCSession) {
+//        print("WC Session did become inactive")
+//    }
+//    
+//    func sessionDidDeactivate(_ session: WCSession) {
+//        print("WC Session did deactivate")
+//        WCSession.default().activate()
+//    }
+//    
+//    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+//        if let error = error {
+//            print("WC Session activation failed with error: \(error.localizedDescription)")
+//            return
+//        }
+//        print("WC Session activated with state: \(activationState.rawValue)")
+//    }
+//    
+//    func setupWatchConnectivity() {
+//        if WCSession.isSupported() {
+//            let session = WCSession.default()
+//            session.delegate = self
+//            session.activate()
+//        }
+//    }
+//    
+//    func sendWorkoutToWatch(_ notification: Notification) {
+//        if WCSession.isSupported() {
+////            if let movies =
+////                TicketOffice.sharedInstance.purchasedMovieTicketIDs() {
+////                // 3
+////                let session = WCSession.default()
+////                if session.isWatchAppInstalled {
+////                    // 4
+////                    do {
+////                        let dictionary = ["movies": movies]
+////                        try session.updateApplicationContext(dictionary)
+////                    } catch {
+////                        print("ERROR: \(error)")
+////                    }
+////                }
+////            }
+//        }
+//    }
+//    
+//    func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
+////        if let movies = applicationContext["movies"] as? [String] {
+////            // 3
+////            TicketOffice.sharedInstance.purchaseTicketsForMovies(movies)
+////            //4
+////            DispatchQueue.main.async(execute: { 
+////                let notificationCenter = NotificationCenter.default
+////                notificationCenter.post(
+////                    name: NSNotification.Name(rawValue: NotificaitonPurchasedMovieOnWatch), object: nil)
+////            })
+////        }
+//    }
+//}

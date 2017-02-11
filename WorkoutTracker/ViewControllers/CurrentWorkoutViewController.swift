@@ -8,6 +8,7 @@
 
 import UIKit
 import HealthKit
+import WatchConnectivity
 
 class CurrentWorkoutViewController: UIViewController {
     
@@ -43,11 +44,18 @@ class CurrentWorkoutViewController: UIViewController {
         HealthKitManager.sharedInstance.heartRateDelegate = self
         HealthKitManager.sharedInstance.workoutDelegate = self
 
-        // NOTE: Don't run this on a device or it will modify your HealthKit data
-        HealthKitManager.sharedInstance.createMockData()
+//        // NOTE: Don't run this on a device or it will modify your HealthKit data
+//        HealthKitManager.sharedInstance.createMockData()
         
         // Retrieve the latest heart rate
         HealthKitManager.sharedInstance.retrieveHeartRate()
+        
+        let workoutConfiguration = HKWorkoutConfiguration()
+        workoutConfiguration.activityType = .highIntensityIntervalTraining
+        workoutConfiguration.locationType = .indoor
+        HKHealthStore().startWatchApp(with: workoutConfiguration) { (success, error) in
+            print("Success: \(success) Error: \(error)")
+        }
     }
     
     func updateCountdown() {
