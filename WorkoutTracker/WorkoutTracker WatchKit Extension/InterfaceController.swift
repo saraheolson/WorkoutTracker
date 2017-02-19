@@ -12,6 +12,10 @@ import Foundation
 
 class InterfaceController: WKInterfaceController {
 
+    @IBOutlet var heartImage: WKInterfaceImage!
+    @IBOutlet var heartRateLabel: WKInterfaceLabel!
+    @IBOutlet var workoutButton: WKInterfaceButton!
+    
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         
@@ -23,9 +27,7 @@ class InterfaceController: WKInterfaceController {
         super.willActivate()
     }
     
-    override func didDeactivate() {
-        // This method is called when watch view controller is no longer visible
-        super.didDeactivate()
+    @IBAction func startOrStopWorkout() {
+        print("Start or Stop Workout")
     }
-
 }
