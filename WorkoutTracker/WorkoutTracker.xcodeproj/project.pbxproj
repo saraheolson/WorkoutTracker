@@ -227,12 +227,12 @@
 					};
 					0CC3631C1E59294200A3F83E = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 4SR4ST5E9E;
+						DevelopmentTeam = WD86FHVM28;
 						ProvisioningStyle = Automatic;
 					};
 					0CC3632B1E59294200A3F83E = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 4SR4ST5E9E;
+						DevelopmentTeam = WD86FHVM28;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -444,7 +444,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
-				DEVELOPMENT_TEAM = 4SR4ST5E9E;
+				DEVELOPMENT_TEAM = WD86FHVM28;
 				INFOPLIST_FILE = "WorkoutTracker WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lynda.WorkoutTracker.watchkitapp.watchkitextension;
@@ -461,7 +461,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
-				DEVELOPMENT_TEAM = 4SR4ST5E9E;
+				DEVELOPMENT_TEAM = WD86FHVM28;
 				INFOPLIST_FILE = "WorkoutTracker WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lynda.WorkoutTracker.watchkitapp.watchkitextension;
@@ -479,7 +479,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 4SR4ST5E9E;
+				DEVELOPMENT_TEAM = WD86FHVM28;
 				IBSC_MODULE = WorkoutTracker_WatchKit_Extension;
 				INFOPLIST_FILE = "WorkoutTracker WatchKit App/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lynda.WorkoutTracker.watchkitapp;
@@ -497,7 +497,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 4SR4ST5E9E;
+				DEVELOPMENT_TEAM = WD86FHVM28;
 				IBSC_MODULE = WorkoutTracker_WatchKit_Extension;
 				INFOPLIST_FILE = "WorkoutTracker WatchKit App/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lynda.WorkoutTracker.watchkitapp;
@@ -555,6 +555,7 @@
 				0CC3633C1E59294200A3F83E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0CC3633E1E59294200A3F83E /* Build configuration list for PBXNativeTarget "WorkoutTracker WatchKit App" */ = {
 			isa = XCConfigurationList;
@@ -563,6 +564,7 @@
 				0CC363401E59294200A3F83E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0CC363421E59294200A3F83E /* Build configuration list for PBXNativeTarget "WorkoutTracker" */ = {
 			isa = XCConfigurationList;
@@ -571,6 +573,7 @@
 				0CC363441E59294200A3F83E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
