@@ -29,8 +29,8 @@ class HealthKitManager : NSObject {
         
         let hrType:HKQuantityType = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.heartRate)!
         
-        let typesToShare = Set([hrType])
-        let typesToSave = Set([hrType])
+        let typesToShare = Set([HKObjectType.workoutType(), hrType])
+        let typesToSave = Set([HKObjectType.workoutType(), hrType])
         
         healthStore.requestAuthorization(toShare: typesToShare, read: typesToSave) { (success, error) in
             print("Was HealthKit authorization successful? \(success)")
