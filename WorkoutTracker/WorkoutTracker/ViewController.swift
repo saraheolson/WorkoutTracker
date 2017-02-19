@@ -2,8 +2,8 @@
 //  ViewController.swift
 //  WorkoutTracker
 //
-//  Created by Floater on 9/25/16.
-//  Copyright © 2016 SarahEOlson. All rights reserved.
+//  Created by Sarah Olson on 2/18/17.
+//  Copyright © 2017 HPlus. All rights reserved.
 //
 
 import UIKit
