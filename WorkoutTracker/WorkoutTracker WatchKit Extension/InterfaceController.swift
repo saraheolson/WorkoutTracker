@@ -23,6 +23,8 @@ class InterfaceController: WKInterfaceController {
     
     var isWorkoutInProgress = false
 
+    var heartRateSamples: [HKQuantitySample] = [HKQuantitySample]()
+    
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         
@@ -81,5 +83,48 @@ class InterfaceController: WKInterfaceController {
             return
         }
         healthKitManager.healthStore.end(session)
+        
+        saveWorkout()
+    }
+    
+    func saveWorkout() {
+        
+        guard let startDate = self.workoutStartDate else {
+            print("Workout start date cannot be nil.")
+            return
+        }
+        
+        // Create some basic workout metadata
+        let metadata = [HKMetadataKeyIndoorWorkout : true]
+        
+        // Create a workout object
+        let workout = HKWorkout(activityType: .highIntensityIntervalTraining,
+                                start: startDate,
+                                end: Date(),
+                                duration: Date().timeIntervalSince(startDate),
+                                totalEnergyBurned: nil,
+                                totalDistance: nil,
+                                metadata: metadata)
+        
+        // Save the workout data
+        healthKitManager.healthStore.save(workout) { [weak self] (success, error) in
+            
+            // Error saving our workout
+            if !success {
+                print("Could not successfully save workout. \(error)")
+                return
+            }
+            
+            // Check to see if we've gathered any heart rate data
+            guard let samples = self?.heartRateSamples, samples.count > 0 else {
+                print("No workout data collected.")
+                return
+            }
+            
+            // Save the heart rate data to our health store
+            self?.healthKitManager.healthStore.add(samples, to: workout, completion: { (success, error) in
+                print("Successfully saved workout data.")
+            })
+        }
     }
 }
