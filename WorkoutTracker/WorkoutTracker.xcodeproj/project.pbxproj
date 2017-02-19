@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0CC3630F1E59294200A3F83E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC3630E1E59294200A3F83E /* AppDelegate.swift */; };
-		0CC363111E59294200A3F83E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC363101E59294200A3F83E /* ViewController.swift */; };
 		0CC363141E59294200A3F83E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CC363121E59294200A3F83E /* Main.storyboard */; };
 		0CC363161E59294200A3F83E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CC363151E59294200A3F83E /* Assets.xcassets */; };
 		0CC363191E59294200A3F83E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CC363171E59294200A3F83E /* LaunchScreen.storyboard */; };
@@ -19,6 +18,7 @@
 		0CC363321E59294200A3F83E /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC363311E59294200A3F83E /* InterfaceController.swift */; };
 		0CC363341E59294200A3F83E /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC363331E59294200A3F83E /* ExtensionDelegate.swift */; };
 		0CC363361E59294200A3F83E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CC363351E59294200A3F83E /* Assets.xcassets */; };
+		0CC363461E59FAAF00A3F83E /* HeartRateTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC363451E59FAAF00A3F83E /* HeartRateTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,7 +66,6 @@
 /* Begin PBXFileReference section */
 		0CC3630B1E59294200A3F83E /* WorkoutTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorkoutTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CC3630E1E59294200A3F83E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0CC363101E59294200A3F83E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0CC363131E59294200A3F83E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0CC363151E59294200A3F83E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0CC363181E59294200A3F83E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -80,6 +79,7 @@
 		0CC363331E59294200A3F83E /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
 		0CC363351E59294200A3F83E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0CC363371E59294200A3F83E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0CC363451E59FAAF00A3F83E /* HeartRateTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeartRateTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,7 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				0CC3630E1E59294200A3F83E /* AppDelegate.swift */,
-				0CC363101E59294200A3F83E /* ViewController.swift */,
+				0CC363451E59FAAF00A3F83E /* HeartRateTableViewController.swift */,
 				0CC363121E59294200A3F83E /* Main.storyboard */,
 				0CC363151E59294200A3F83E /* Assets.xcassets */,
 				0CC363171E59294200A3F83E /* LaunchScreen.storyboard */,
@@ -292,7 +292,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0CC363111E59294200A3F83E /* ViewController.swift in Sources */,
+				0CC363461E59FAAF00A3F83E /* HeartRateTableViewController.swift in Sources */,
 				0CC3630F1E59294200A3F83E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
