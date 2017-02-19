@@ -19,6 +19,10 @@
 		0CC363341E59294200A3F83E /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC363331E59294200A3F83E /* ExtensionDelegate.swift */; };
 		0CC363361E59294200A3F83E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CC363351E59294200A3F83E /* Assets.xcassets */; };
 		0CC363461E59FAAF00A3F83E /* HeartRateTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC363451E59FAAF00A3F83E /* HeartRateTableViewController.swift */; };
+		0CC3634A1E5A048800A3F83E /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CC363491E5A048800A3F83E /* HealthKit.framework */; };
+		0CC3634D1E5A048F00A3F83E /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CC3634C1E5A048F00A3F83E /* HealthKit.framework */; };
+		0CC3634F1E5A09CB00A3F83E /* HealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC3634E1E5A09CB00A3F83E /* HealthKitManager.swift */; };
+		0CC363501E5A09CB00A3F83E /* HealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC3634E1E5A09CB00A3F83E /* HealthKitManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +84,11 @@
 		0CC363351E59294200A3F83E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0CC363371E59294200A3F83E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0CC363451E59FAAF00A3F83E /* HeartRateTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeartRateTableViewController.swift; sourceTree = "<group>"; };
+		0CC363471E5A048800A3F83E /* WorkoutTracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WorkoutTracker.entitlements; sourceTree = "<group>"; };
+		0CC363491E5A048800A3F83E /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		0CC3634B1E5A048F00A3F83E /* WorkoutTracker WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "WorkoutTracker WatchKit Extension.entitlements"; sourceTree = "<group>"; };
+		0CC3634C1E5A048F00A3F83E /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS3.1.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
+		0CC3634E1E5A09CB00A3F83E /* HealthKitManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthKitManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CC3634A1E5A048800A3F83E /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CC3634D1E5A048F00A3F83E /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,7 +117,9 @@
 				0CC3630D1E59294200A3F83E /* WorkoutTracker */,
 				0CC363211E59294200A3F83E /* WorkoutTracker WatchKit App */,
 				0CC363301E59294200A3F83E /* WorkoutTracker WatchKit Extension */,
+				0CC363511E5A09ED00A3F83E /* Shared */,
 				0CC3630C1E59294200A3F83E /* Products */,
+				0CC363481E5A048800A3F83E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -123,6 +136,7 @@
 		0CC3630D1E59294200A3F83E /* WorkoutTracker */ = {
 			isa = PBXGroup;
 			children = (
+				0CC363471E5A048800A3F83E /* WorkoutTracker.entitlements */,
 				0CC3630E1E59294200A3F83E /* AppDelegate.swift */,
 				0CC363451E59FAAF00A3F83E /* HeartRateTableViewController.swift */,
 				0CC363121E59294200A3F83E /* Main.storyboard */,
@@ -146,12 +160,31 @@
 		0CC363301E59294200A3F83E /* WorkoutTracker WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
+				0CC3634B1E5A048F00A3F83E /* WorkoutTracker WatchKit Extension.entitlements */,
 				0CC363311E59294200A3F83E /* InterfaceController.swift */,
 				0CC363331E59294200A3F83E /* ExtensionDelegate.swift */,
 				0CC363351E59294200A3F83E /* Assets.xcassets */,
 				0CC363371E59294200A3F83E /* Info.plist */,
 			);
 			path = "WorkoutTracker WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		0CC363481E5A048800A3F83E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0CC3634C1E5A048F00A3F83E /* HealthKit.framework */,
+				0CC363491E5A048800A3F83E /* HealthKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0CC363511E5A09ED00A3F83E /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				0CC3634E1E5A09CB00A3F83E /* HealthKitManager.swift */,
+			);
+			name = Shared;
+			path = WorkoutTracker;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -224,6 +257,11 @@
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = WD86FHVM28;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.HealthKit = {
+								enabled = 1;
+							};
+						};
 					};
 					0CC3631C1E59294200A3F83E = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -234,6 +272,11 @@
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = WD86FHVM28;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.HealthKit.watchos = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -294,6 +337,7 @@
 			files = (
 				0CC363461E59FAAF00A3F83E /* HeartRateTableViewController.swift in Sources */,
 				0CC3630F1E59294200A3F83E /* AppDelegate.swift in Sources */,
+				0CC3634F1E5A09CB00A3F83E /* HealthKitManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,6 +347,7 @@
 			files = (
 				0CC363341E59294200A3F83E /* ExtensionDelegate.swift in Sources */,
 				0CC363321E59294200A3F83E /* InterfaceController.swift in Sources */,
+				0CC363501E5A09CB00A3F83E /* HealthKitManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,7 +415,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Lynda Author (4442V89Z7B)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -419,7 +464,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Lynda Author (4442V89Z7B)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -444,10 +489,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "WorkoutTracker WatchKit Extension/WorkoutTracker WatchKit Extension.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = WD86FHVM28;
 				INFOPLIST_FILE = "WorkoutTracker WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.lynda.WorkoutTracker.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lynda.healthkit.WorkoutTracker.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -461,10 +508,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "WorkoutTracker WatchKit Extension/WorkoutTracker WatchKit Extension.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = WD86FHVM28;
 				INFOPLIST_FILE = "WorkoutTracker WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.lynda.WorkoutTracker.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lynda.healthkit.WorkoutTracker.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -479,10 +528,11 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = WD86FHVM28;
 				IBSC_MODULE = WorkoutTracker_WatchKit_Extension;
 				INFOPLIST_FILE = "WorkoutTracker WatchKit App/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = com.lynda.WorkoutTracker.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lynda.healthkit.WorkoutTracker.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -497,10 +547,11 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = WD86FHVM28;
 				IBSC_MODULE = WorkoutTracker_WatchKit_Extension;
 				INFOPLIST_FILE = "WorkoutTracker WatchKit App/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = com.lynda.WorkoutTracker.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lynda.healthkit.WorkoutTracker.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -514,10 +565,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = WorkoutTracker/WorkoutTracker.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = WD86FHVM28;
 				INFOPLIST_FILE = WorkoutTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.lynda.WorkoutTracker;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lynda.healthkit.WorkoutTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -527,10 +580,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = WorkoutTracker/WorkoutTracker.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = WD86FHVM28;
 				INFOPLIST_FILE = WorkoutTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.lynda.WorkoutTracker;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lynda.healthkit.WorkoutTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

@@ -16,10 +16,14 @@ class InterfaceController: WKInterfaceController {
     @IBOutlet var heartRateLabel: WKInterfaceLabel!
     @IBOutlet var workoutButton: WKInterfaceButton!
     
+    let healthKitManager = HealthKitManager.sharedInstance
+
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         
-        // Configure interface objects here.
+        healthKitManager.authorizeHealthKitAccess { (success, error) in
+            print("HealthKit authorized? \(success)")
+        }
     }
     
     override func willActivate() {

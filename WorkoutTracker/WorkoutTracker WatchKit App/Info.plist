@@ -26,7 +26,7 @@
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 	</array>
 	<key>WKCompanionAppBundleIdentifier</key>
-	<string>com.lynda.WorkoutTracker</string>
+	<string>com.lynda.healthkit.WorkoutTracker</string>
 	<key>WKWatchKitApp</key>
 	<true/>
 </dict>

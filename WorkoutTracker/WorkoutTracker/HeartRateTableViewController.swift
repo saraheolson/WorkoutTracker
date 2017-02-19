@@ -10,10 +10,16 @@ import UIKit
 
 class HeartRateTableViewController: UITableViewController {
 
+    let healthKitManager = HealthKitManager.sharedInstance
+
     var heartRateData: [String] = ["63", "87"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        healthKitManager.authorizeHealthKitAccess { (success, error) in
+            print("HealthKit authorized? \(success)")
+        }
     }
 
     // MARK: - Table view data source
