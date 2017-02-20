@@ -12,6 +12,10 @@ import HealthKit
 // Defines the heart rate type in HealthKit
 let heartRateType = HKObjectType.quantityType(forIdentifier: .heartRate)
 
+protocol HeartRateDelegate {
+    func heartRateUpdated(heartRateSamples: [HKSample])
+}
+
 // Class for sharing HealthKit resources between watch and phone
 class HealthKitManager : NSObject {
     
@@ -23,6 +27,12 @@ class HealthKitManager : NSObject {
     
     // Keep a single instance of the healthstore
     let healthStore = HKHealthStore()
+    
+    // Subscribe to heart rate changes
+    var heartRateDelegate: HeartRateDelegate?
+    
+    // Keep track of last heart rate data received
+    var anchor: HKQueryAnchor?
     
     // Requests authorization for health data access
     func authorizeHealthKitAccess(_ completion: ((_ success: Bool, _ error: Error?) -> Void)!) {
@@ -36,5 +46,38 @@ class HealthKitManager : NSObject {
             print("Was HealthKit authorization successful? \(success)")
             completion(success, error)
         }
+    }
+    
+    func createHeartRateStreamingQuery(_ workoutStartDate: Date) -> HKQuery? {
+        
+        guard let quantityType = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.heartRate) else {
+            return nil
+        }
+        let datePredicate = HKQuery.predicateForSamples(withStart: workoutStartDate, end: nil, options: .strictEndDate )
+        let predicate = NSCompoundPredicate(andPredicateWithSubpredicates:[datePredicate])
+        
+        let heartRateQuery = HKAnchoredObjectQuery(type: quantityType,
+                                                   predicate: predicate,
+                                                   anchor: nil,
+                                                   limit: Int(HKObjectQueryNoLimit))
+        { (query, sampleObjects, deletedObjects, newAnchor, error) -> Void in
+            
+            guard let newAnchor = newAnchor, let sampleData = sampleObjects else {
+                return
+            }
+            self.anchor = newAnchor
+            
+            self.heartRateDelegate?.heartRateUpdated(heartRateSamples: sampleData)
+        }
+        
+        heartRateQuery.updateHandler = {(query, samples, deleteObjects, newAnchor, error) -> Void in
+            
+            guard let newAnchor = newAnchor, let sampleData = samples else {
+                return
+            }
+            self.anchor = newAnchor
+            self.heartRateDelegate?.heartRateUpdated(heartRateSamples: sampleData)
+        }
+        return heartRateQuery
     }
 }

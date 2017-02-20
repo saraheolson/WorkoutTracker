@@ -27,8 +27,6 @@ class InterfaceController: WKInterfaceController {
     
     var heartRateQuery : HKQuery?
     
-    var anchor: HKQueryAnchor?
-    
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         
@@ -158,8 +156,9 @@ extension InterfaceController: HKWorkoutSessionDelegate {
     func sessionStarted(_ date: Date) {
         print("Workout started.")
         
-        if let query = createHeartRateStreamingQuery(date) {
+        if let query = healthKitManager.createHeartRateStreamingQuery(date) {
             self.heartRateQuery = query
+            healthKitManager.heartRateDelegate = self
             healthKitManager.healthStore.execute(query)
         } else {
             print("cannot start")
@@ -171,36 +170,13 @@ extension InterfaceController: HKWorkoutSessionDelegate {
         
         healthKitManager.healthStore.stop(self.heartRateQuery!)
     }
+}
+
+extension InterfaceController: HeartRateDelegate {
     
-    func createHeartRateStreamingQuery(_ workoutStartDate: Date) -> HKQuery? {
+    func heartRateUpdated(heartRateSamples: [HKSample]) {
         
-        guard let quantityType = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.heartRate) else { return nil }
-        let datePredicate = HKQuery.predicateForSamples(withStart: workoutStartDate, end: nil, options: .strictEndDate )
-        let predicate = NSCompoundPredicate(andPredicateWithSubpredicates:[datePredicate])
-        
-        
-        let heartRateQuery = HKAnchoredObjectQuery(type: quantityType,
-                                                   predicate: predicate,
-                                                   anchor: nil,
-                                                   limit: Int(HKObjectQueryNoLimit))
-        { (query, sampleObjects, deletedObjects, newAnchor, error) -> Void in
-            
-            guard let newAnchor = newAnchor else {return}
-            self.anchor = newAnchor
-            
-            self.updateHeartRate(sampleObjects)
-        }
-        
-        heartRateQuery.updateHandler = {(query, samples, deleteObjects, newAnchor, error) -> Void in
-            self.anchor = newAnchor!
-            self.updateHeartRate(samples)
-        }
-        return heartRateQuery
-    }
-    
-    func updateHeartRate(_ samples: [HKSample]?) {
-        
-        guard let heartRateSamples = samples as? [HKQuantitySample] else {
+        guard let heartRateSamples = heartRateSamples as? [HKQuantitySample] else {
             return
         }
         
