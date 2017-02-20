@@ -25,6 +25,10 @@ class InterfaceController: WKInterfaceController {
 
     var heartRateSamples: [HKQuantitySample] = [HKQuantitySample]()
     
+    var heartRateQuery : HKQuery?
+    
+    var anchor: HKQueryAnchor?
+    
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         
@@ -153,9 +157,64 @@ extension InterfaceController: HKWorkoutSessionDelegate {
     
     func sessionStarted(_ date: Date) {
         print("Workout started.")
+        
+        if let query = createHeartRateStreamingQuery(date) {
+            self.heartRateQuery = query
+            healthKitManager.healthStore.execute(query)
+        } else {
+            print("cannot start")
+        }
     }
     
     func sessionEnded(_ date: Date) {
         print("Workout ended.")
+        
+        healthKitManager.healthStore.stop(self.heartRateQuery!)
+    }
+    
+    func createHeartRateStreamingQuery(_ workoutStartDate: Date) -> HKQuery? {
+        
+        guard let quantityType = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.heartRate) else { return nil }
+        let datePredicate = HKQuery.predicateForSamples(withStart: workoutStartDate, end: nil, options: .strictEndDate )
+        let predicate = NSCompoundPredicate(andPredicateWithSubpredicates:[datePredicate])
+        
+        
+        let heartRateQuery = HKAnchoredObjectQuery(type: quantityType,
+                                                   predicate: predicate,
+                                                   anchor: nil,
+                                                   limit: Int(HKObjectQueryNoLimit))
+        { (query, sampleObjects, deletedObjects, newAnchor, error) -> Void in
+            
+            guard let newAnchor = newAnchor else {return}
+            self.anchor = newAnchor
+            
+            self.updateHeartRate(sampleObjects)
+        }
+        
+        heartRateQuery.updateHandler = {(query, samples, deleteObjects, newAnchor, error) -> Void in
+            self.anchor = newAnchor!
+            self.updateHeartRate(samples)
+        }
+        return heartRateQuery
+    }
+    
+    func updateHeartRate(_ samples: [HKSample]?) {
+        
+        guard let heartRateSamples = samples as? [HKQuantitySample] else {
+            return
+        }
+        
+        DispatchQueue.main.async {
+            
+            self.heartRateSamples += heartRateSamples
+            
+            guard let sample = heartRateSamples.first else {
+                return
+            }
+            let value = sample.quantity.doubleValue(for: HKUnit(from: "count/min"))
+            print("New heart rate value received: \(value)")
+            let heartRateString = String(format: "%.00f", value)
+            self.heartRateLabel.setText(heartRateString)
+        }
     }
 }
