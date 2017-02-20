@@ -161,7 +161,7 @@ extension InterfaceController: HKWorkoutSessionDelegate {
             healthKitManager.heartRateDelegate = self
             healthKitManager.healthStore.execute(query)
         } else {
-            print("cannot start")
+            print("Cannot create heart rate query.")
         }
     }
     

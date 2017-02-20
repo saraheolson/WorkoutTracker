@@ -7,18 +7,22 @@
 //
 
 import UIKit
+import HealthKit
 
 class HeartRateTableViewController: UITableViewController {
 
     let healthKitManager = HealthKitManager.sharedInstance
 
-    var heartRateData: [String] = ["63", "87"]
+    var heartRateData: [HKQuantitySample] = []
     
+    var heartRateQuery : HKQuery?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        healthKitManager.authorizeHealthKitAccess { (success, error) in
+        healthKitManager.authorizeHealthKitAccess { [weak self] (success, error) in
             print("HealthKit authorized? \(success)")
+            self?.retrieveHeartRateData()
         }
     }
 
@@ -34,7 +38,40 @@ class HeartRateTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "heartRate", for: indexPath)
-        cell.textLabel?.text = heartRateData[indexPath.row]
+        
+        let heartRate = heartRateData[indexPath.row].quantity
+        let heartRateString = String(format: "%.00f", heartRate)
+        cell.textLabel?.text = "\(heartRate)"
         return cell
+    }
+    
+    func retrieveHeartRateData() {
+        
+        if let query = healthKitManager.createHeartRateStreamingQuery(Date()) {
+            self.heartRateQuery = query
+            healthKitManager.heartRateDelegate = self
+            healthKitManager.healthStore.execute(query)
+        } else {
+            print("Cannot create heart rate query.")
+        }
+    }
+}
+
+extension HeartRateTableViewController: HeartRateDelegate {
+    
+    func heartRateUpdated(heartRateSamples: [HKSample]) {
+        
+        guard let heartRateSamples = heartRateSamples as? [HKQuantitySample] else {
+            return
+        }
+        
+        DispatchQueue.main.async {
+            
+            for sample in heartRateSamples {
+                self.heartRateData.append(sample)
+            }
+            print("Heart rate data: \(self.heartRateData)")
+            self.tableView.reloadData()
+        }
     }
 }
