@@ -62,6 +62,7 @@ class InterfaceController: WKInterfaceController {
         
         do {
             workoutSession = try HKWorkoutSession(configuration: hkWorkoutConfiguration)
+            workoutSession?.delegate = self
         } catch {
             print("Could not create a session.")
         }
@@ -126,5 +127,35 @@ class InterfaceController: WKInterfaceController {
                 print("Successfully saved workout data.")
             })
         }
+    }
+}
+
+extension InterfaceController: HKWorkoutSessionDelegate {
+    
+    func workoutSession(_ workoutSession: HKWorkoutSession,
+                        didChangeTo toState: HKWorkoutSessionState,
+                        from fromState: HKWorkoutSessionState, date: Date) {
+        switch toState {
+        case .running:
+            self.sessionStarted(date)
+        case .ended:
+            self.sessionEnded(date)
+        default:
+            print("Invalid workout state.")
+        }
+    }
+    
+    func workoutSession(_ workoutSession: HKWorkoutSession,
+                        didFailWithError error: Error) {
+        print("Workout failed with error: \(error)")
+        sessionEnded(Date())
+    }
+    
+    func sessionStarted(_ date: Date) {
+        print("Workout started.")
+    }
+    
+    func sessionEnded(_ date: Date) {
+        print("Workout ended.")
     }
 }
