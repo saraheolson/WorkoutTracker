@@ -191,6 +191,24 @@ extension InterfaceController: HeartRateDelegate {
             print("New heart rate value received: \(value)")
             let heartRateString = String(format: "%.00f", value)
             self.heartRateLabel.setText(heartRateString)
+            
+            self.animateHeart()
+        }
+    }
+    
+    func animateHeart() {
+        self.animate(withDuration: 0.5) {
+            self.heartImage.setImageNamed("pulsingHeart")
+        }
+        
+        let when = DispatchTime.now() + Double(Int64(0.5 * double_t(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
+        
+        DispatchQueue.global(qos: .default).async {
+            DispatchQueue.main.asyncAfter(deadline: when) {
+                self.animate(withDuration: 0.5, animations: {
+                    self.heartImage.setImageNamed("fullHeart")
+                })
+            }
         }
     }
 }

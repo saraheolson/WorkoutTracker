@@ -37,10 +37,10 @@ class HeartRateTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "heartRate", for: indexPath)
         
         let heartRate = heartRateData[indexPath.row].quantity
-        let heartRateString = String(format: "%.00f", heartRate)
         cell.textLabel?.text = "\(heartRate)"
         return cell
     }
